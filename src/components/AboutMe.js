@@ -70,7 +70,7 @@ export default function AboutMe() {
               About Me
             </h2>
             <p className="text-gray-300 leading-relaxed mb-4">
-              Hi, I'm <span className="text-purple-400 font-bold">Ali Raza</span>, 
+              Hi, I am <span className="text-purple-400 font-bold">Ali Raza</span>, 
               a passionate <span className="text-purple-300">Full Stack Web Developer</span> 🚀 
               who loves building scalable and modern web applications.
             </p>
