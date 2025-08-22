@@ -15,8 +15,8 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h1 className="text-4xl font-bold text-purple-400 mb-2">Lets Connect</h1>
-          <p className="text-gray-300 text-lg">Whether you have a question, a project, or just want to say hi—I am all ears.</p>
+          <h1 className="text-4xl font-bold text-purple-400 mb-2">Let&apos;s Connect</h1>
+          <p className="text-gray-300 text-lg">Whether you have a question, a project, or just want to say hi—I&apos;m all ears.</p>
         </motion.div>
 
         {/* Contact Info */}
