@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaUsers, FaLightbulb } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaGitAlt, FaUsers, FaLightbulb } from "react-icons/fa";
 import { SiNextdotjs, SiMongodb, SiTailwindcss } from "react-icons/si";
 
 export default function Skills() {
