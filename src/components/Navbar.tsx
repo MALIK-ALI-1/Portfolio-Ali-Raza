@@ -25,10 +25,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between md:justify-center">
         
-        {/* Logo */}
-        <span className="text-2xl font-bold text-purple-400 hover:text-cyan-300 transition cursor-pointer md:absolute left-6">
+        {/* Logo (Accessible Link) */}
+        <Link 
+          href="/" 
+          className="text-2xl font-bold text-purple-400 hover:text-cyan-300 transition md:absolute left-6"
+          aria-label="Go to homepage"
+        >
           CodeWithAli
-        </span>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-8 font-bold justify-center items-center">
@@ -57,7 +61,8 @@ export default function Navbar() {
         <div className="md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-gray-300 hover:text-white text-2xl focus:outline-none"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            className="text-gray-300 hover:text-white text-2xl focus:ring-2 focus:ring-purple-400 rounded"
           >
             {menuOpen ? <HiX /> : <HiMenu />}
           </button>
