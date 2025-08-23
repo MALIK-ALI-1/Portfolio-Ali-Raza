@@ -1,5 +1,5 @@
-// app/about/page.tsx
-export default function About() {
+// app/contact/page.tsx
+export default function Contact() {
   return (
     <p></p>
   );
