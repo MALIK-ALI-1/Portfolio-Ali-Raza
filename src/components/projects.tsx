@@ -4,18 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-// ✅ Define a proper type for projects
-type Project = {
-  title: string;
-  description: string;
-  image: string;
-  tech: string[];
-  github: string;
-  demo: string;
-};
-
 // 🔹 Reusable ProjectCard component
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index }: { project: any; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -71,8 +61,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 export default function Projects() {
-  // ✅ Array is typed as Project[]
-  const projects: Project[] = [
+  const projects = [
     {
       title: "Educist – Learning Platform",
       description:

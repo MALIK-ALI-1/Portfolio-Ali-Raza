@@ -51,8 +51,8 @@ export default function AboutMe() {
           >
             <div className="relative w-64 h-80 rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/Profile.jpg"
-                alt="Profile picture of Ali Raza"
+                src="/Profile.jpg" // 👈 apni image daalni hai
+                alt="Ali Raza"
                 fill
                 className="object-cover"
               />
@@ -82,14 +82,14 @@ export default function AboutMe() {
           </motion.div>
         </div>
 
-        {/* Timeline Section */}
+        {/* Timeline Section (Zig-Zag) */}
         <h2 className="text-4xl font-extrabold text-purple-400 mb-12 text-center">
           My Journey
         </h2>
 
-        <div className="relative pb-12">
+        <div className="relative">
           {/* Vertical line in center */}
-          <div className="absolute left-1/2 top-0 w-1 bg-purple-500 h-full -translate-x-1/2 pointer-events-none"></div>
+          <div className="absolute left-1/2 top-0 w-1 bg-purple-500 h-full transform -translate-x-1/2"></div>
 
           <div className="space-y-12">
             {experiences.map((exp, index) => {
@@ -99,22 +99,21 @@ export default function AboutMe() {
                   key={index}
                   initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
                   viewport={{ once: true }}
                   className={`relative flex w-full ${
                     isLeft ? "justify-start pr-10" : "justify-end pl-10"
                   }`}
                 >
                   {/* Timeline dot */}
-                  <span className="absolute left-1/2 top-5 w-6 h-6 bg-purple-500 rounded-full border-4 border-gray-900 shadow-lg -translate-x-1/2"></span>
+                  <span className="absolute left-1/2 top-5 w-6 h-6 bg-purple-500 rounded-full border-4 border-gray-900 shadow-lg transform -translate-x-1/2"></span>
 
                   {/* Card */}
-                  <div className="bg-gray-800 w-full sm:w-4/5 md:w-1/2 p-6 rounded-2xl shadow-lg hover:shadow-purple-500/30 hover:scale-[1.02] transition-all">
-                    <h3 className="text-xl font-bold text-purple-400">
-                      {exp.year}
+                  <div className="bg-gray-800 w-full md:w-1/2 p-6 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition-all">
+                    <h3 className="text-xl font-bold text-purple-300">
+                      {exp.year} – {exp.title}
                     </h3>
-                    <h4 className="text-md text-purple-300 font-semibold">{exp.title}</h4>
-                    <p className="text-sm text-gray-400 mb-2">{exp.company}</p>
+                    <h4 className="text-md text-gray-400 mb-2">{exp.company}</h4>
                     <p className="text-gray-300">{exp.description}</p>
                   </div>
                 </motion.div>
