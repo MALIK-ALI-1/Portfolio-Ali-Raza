@@ -2,33 +2,27 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
-  const [isClient, setIsClient] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
-    const update = () => setIsDesktop(window.innerWidth >= 768);
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+    const check = () => setIsDesktop(window.innerWidth >= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDesktop) return;
     const { offsetWidth, offsetHeight } = e.currentTarget;
     const x = (e.nativeEvent.offsetX / offsetWidth - 0.5) * 20;
     const y = (e.nativeEvent.offsetY / offsetHeight - 0.5) * 20;
     setRotate({ x: -y, y: x });
   };
-
-  const handleMouseLeave = () => {
-    if (!isDesktop) return;
-    setRotate({ x: 0, y: 0 });
-  };
+  const handleLeave = () => isDesktop && setRotate({ x: 0, y: 0 });
 
   return (
     <section className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white min-h-screen flex items-center justify-center px-4 sm:px-6">
@@ -46,7 +40,7 @@ export default function Hero() {
           <h2 className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-3">
             Full Stack Web Developer 🚀
           </h2>
-          <ul className="text-gray-400 mb-4 leading-relaxed list-disc list-inside space-y-1 text-sm sm:text-base md:text-lg">
+          <ul className="text-gray-400 mb-4 list-disc list-inside space-y-1 text-sm sm:text-base md:text-lg">
             <li>Passionate about building scalable web applications</li>
             <li>Skilled in React, Next.js, Node.js, MongoDB</li>
             <li>Open to remote opportunities worldwide</li>
@@ -63,29 +57,29 @@ export default function Hero() {
 
         {/* Image */}
         <motion.div
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
           className="flex justify-center py-4"
+          onMouseMove={handleMove}
+          onMouseLeave={handleLeave}
         >
           <motion.div
-            style={{ transform: isClient && isDesktop ? `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)` : "none" }}
+            style={{
+              transform: isDesktop ? `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)` : "none",
+            }}
             transition={{ type: "spring", stiffness: 150, damping: 20 }}
-            className="relative w-48 sm:w-56 md:w-64 aspect-[3/4] rounded-2xl"
+            className="relative w-full max-w-xs sm:max-w-sm md:max-w-md aspect-[3/4] rounded-2xl"
           >
-            {isClient && isDesktop && (
+            {isDesktop && (
               <motion.div
                 className="absolute inset-0 rounded-2xl"
                 style={{
-                  background: `radial-gradient(circle at ${50 + rotate.y * 2}% ${
-                    50 + rotate.x * 2
-                  }%, rgba(168,85,247,0.6), transparent 70%)`,
+                  background: `radial-gradient(circle at ${50 + rotate.y * 2}% ${50 + rotate.x * 2}%, rgba(168,85,247,0.6), transparent 70%)`,
                   filter: "blur(30px)",
                   zIndex: 0,
                 }}
               />
             )}
             <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-2xl z-10">
-              <Image src="/Profile.jpg" alt="Ali Raza" fill className="object-cover" priority />
+              <Image src="/profile.jpg" alt="Ali Raza" fill className="object-cover" priority />
             </div>
           </motion.div>
         </motion.div>
