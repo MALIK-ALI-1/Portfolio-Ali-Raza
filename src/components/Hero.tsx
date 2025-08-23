@@ -41,7 +41,7 @@ export default function Hero() {
           className="flex flex-col justify-center text-center md:text-left px-2"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2">
-            Hi, I'm <span className="text-purple-400">Ali Raza</span>
+            Hi, I&apos;m <span className="text-purple-400">Ali Raza</span>
           </h1>
           <h2 className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-3">
             Full Stack Web Developer 🚀
