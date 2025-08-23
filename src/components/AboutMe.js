@@ -51,7 +51,7 @@ export default function AboutMe() {
           >
             <div className="relative w-64 h-80 rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/profile.jpg" // 👈 apni image daalni hai
+                src="/Profile.jpg" // 👈 apni image daalni hai
                 alt="Ali Raza"
                 fill
                 className="object-cover"
