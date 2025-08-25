@@ -8,8 +8,9 @@ export default function Footer() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
     { name: "Projects", href: "/projects" },
+    { name: "Tech Stack", href: "/TechStack" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 
