@@ -10,9 +10,9 @@ export default function Projects() {
       title: "Educist – Learning Platform",
       description:
         "Final Year Project – A modern learning platform that enables students to access resources, quizzes, and learning tools.",
-      image: "/projects/educist.png", // 👈 apni project ki image dalna (public/projects/)
-      tech: ["React.js","Next.js", "MongoDB", "CSS", "HTML", "Javascript", "TailwindCSS", "Vercel"],
-      github: "https://github.com/yourusername/educist",
+      image: "/projects/educist.png",
+      tech: ["React.js", "Next.js", "MongoDB", "CSS", "HTML", "Javascript", "TailwindCSS", "Vercel"],
+      github: "https://github.com/Ahtsham-Ali/a.educist",
       demo: "https://educist.vercel.app",
     },
     {
@@ -21,7 +21,7 @@ export default function Projects() {
         "Industry-level fintech platform built during internship, focused on auditing and automation.",
       image: "/projects/auditaxis.png",
       tech: ["React.js", "Node.js", "MongoDB", "CSS", "HTML", "Javascript"],
-      github: "https://github.com/yourusername/educist",
+      github: "https://github.com/Ahtsham-Ali/c.auditaxis",
       demo: "https://auditaxis.vercel.app",
     },
     {
@@ -30,8 +30,16 @@ export default function Projects() {
         "Personal portfolio built with Next.js and TailwindCSS, showcasing projects and skills.",
       image: "/projects/portfolio.png",
       tech: ["Next.js", "TailwindCSS", "Framer Motion"],
-      github: "https://github.com/yourusername/portfolio",
-      demo: "https://codewithali.vercel.app",
+      github: "https://github.com/MALIK-ALI-1/Portfolio-Ali-Raza",
+      demo: "https://portfolio-ali-raza-rouge.vercel.app/",
+    },
+    {
+      title: "Chat Application",
+      description: "A real-time chat app with responsive sidebar and chat history management.",
+      image: "/projects/chatapp.png",
+      tech: ["Next.js", "TypeScript", "TailwindCSS"],
+      github: "https://github.com/MALIK-ALI-1/ChatBot",
+      demo: "https://chat-bot-beryl-gamma.vercel.app/",
     },
   ];
 
@@ -52,13 +60,19 @@ export default function Projects() {
               viewport={{ once: true }}
               className="bg-gray-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-purple-500/40 transition-all"
             >
-              <div className="relative w-full h-48">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
+              <div className="relative w-full h-48 bg-gray-800">
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="flex items-center justify-center h-full text-gray-500">
+                    No Image
+                  </div>
+                )}
               </div>
               <div className="p-6 text-left">
                 <h3 className="text-2xl font-bold text-purple-300 mb-2">
@@ -69,19 +83,21 @@ export default function Projects() {
                   Tech: {project.tech.join(", ")}
                 </p>
                 <div className="flex gap-4">
-                  {project.github !== "#" && (
+                  {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition"
                     >
                       <FaGithub /> GitHub
                     </a>
                   )}
-                  {project.demo !== "#" && (
+                  {project.demo && (
                     <a
                       href={project.demo}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition"
                     >
                       <FaExternalLinkAlt /> Live Demo
